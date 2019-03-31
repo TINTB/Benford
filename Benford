@@ -1,0 +1,38 @@
+//benford c
+// https://informatika.azoo.hr/natjecanje/dobavi-dokument/430
+
+#include <stdio.h>
+#include <math.h>
+main()
+{
+	int num, input, digits[9] = { 0 }, output, check;
+
+	scanf("%d", &num);
+
+	for (int i = 1; i <= num; i++)
+	{
+		scanf("%d", &input);
+
+		if (input < 0) {
+			input = -input;
+		}
+		while (input >= 10) input = input / 10;
+		digits[input - 1]++;
+	}
+	for (check = 1; check <= 9; check++)
+	{
+		if (digits[check - 1] < digits[check])
+		{
+			output = 0;
+			break;
+		}
+		else
+			output = 1;
+	}
+	if (output = 1)
+	{
+		printf("\n%d %d %d \n", check, digits[check - 1], digits[check]);
+	}
+	else
+		printf("\n0 \n");
+}
